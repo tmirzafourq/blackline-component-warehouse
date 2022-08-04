@@ -2,5 +2,51 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "blackline-library": {
+      "projectType": "library",
+      "root": "projects/blackline-library",
+      "sourceRoot": "projects/blackline-library/src",
+      "prefix": "bl",
+      "schematics": {
+        "@schematics/angular:component": {
+          "stylet": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/blackline-library/tsconfig.lib.json",
+            "project": "projects/blackline-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/blackline-library/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/blackline-library/src/test.ts",
+            "tsConfig": "projects/blackline-library/tsconfig.spec.json",
+            "karmaConfig": "projects/blackline-library/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/blackline-library/tsconfig.lib.json",
+              "projects/blackline-library/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "blackline-library"
 }
