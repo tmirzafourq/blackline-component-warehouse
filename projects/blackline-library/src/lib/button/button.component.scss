@@ -1,0 +1,25 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+.button-simple {
+    color: black;
+    background-color: #f9b734;
+    border: solid #eea101 1px;
+    border-radius: 10px;
+    height: 45px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    &.button-simple:hover {
+        background-color: #f3c769c7;
+        border: solid #eea101 1px;
+    }
+      
+    &.button-simple:active {
+        background-color: #f3c769be;
+        box-shadow: 0 1.5px #666;
+        border: solid #eea101 1px;
+    }
+  }
+  
